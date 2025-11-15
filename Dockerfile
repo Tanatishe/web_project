@@ -4,9 +4,10 @@ WORKDIR /app
 
 RUN pip install uv
 
-COPY pyproject.toml uv.lock* ./
+COPY pyproject.toml ./
+COPY uv.lock* ./
 
-RUN uv sync --frozen
+RUN if [ -f uv.lock ]; then uv sync --frozen --no-install-project; else uv sync --no-install-project; fi
 
 COPY . .
 
