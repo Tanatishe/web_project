@@ -55,6 +55,7 @@ services:
       - JIBRI_RECORDER_USER=recorder
       - JIBRI_RECORDER_PASSWORD=
       - ENABLE_SCTP=1
+      - TRUST_PROXY=true
       - TZ=UTC
     networks:
       - app-network
