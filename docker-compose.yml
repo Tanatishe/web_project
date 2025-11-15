@@ -28,7 +28,6 @@ services:
     restart: unless-stopped
     volumes:
       - jitsi-web-config:/config:Z
-      - ./jitsi-custom:/usr/share/jitsi-meet/custom:ro
     environment:
       - ENABLE_AUTH=0
       - ENABLE_GUESTS=1
@@ -119,4 +118,3 @@ volumes:
   jitsi-prosody-config:
   jitsi-jvb-config:
   jitsi-jicofo-config:
-
