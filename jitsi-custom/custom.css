@@ -1,0 +1,12 @@
+#recommendedBrowsers {
+    display: none !important;
+}
+
+.recommended-browsers {
+    display: none !important;
+}
+
+[data-testid="recommendedBrowsers"] {
+    display: none !important;
+}
+
