@@ -4,6 +4,6 @@ router = APIRouter()
 
 
 @router.get("/test")
-async def test_endpoint():
+async def test_endpoint() -> dict[str, str]:
     return {"message": "Test endpoint works!", "status": "ok"}
 

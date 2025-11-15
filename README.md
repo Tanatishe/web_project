@@ -32,7 +32,7 @@ uv run uvicorn main:app --reload
 docker-compose up --build
 ```
 
-Приложение будет доступно по адресу: http://localhost:8000
+Приложение будет доступно по адресу: http://localhost (через nginx на порту 80)
 
 ## Тестирование
 
@@ -62,6 +62,12 @@ uv run mypy .
 ## Документация
 
 После запуска приложения доступна автоматическая документация:
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+- Swagger UI: http://localhost/docs
+- ReDoc: http://localhost/redoc
+
+## Архитектура
+
+Приложение использует nginx как reverse proxy перед FastAPI:
+- **nginx** - обрабатывает входящие запросы на порту 80
+- **web** - FastAPI приложение на порту 8000 (внутренняя сеть)
 
