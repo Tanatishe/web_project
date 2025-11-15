@@ -5,6 +5,7 @@ services:
       - DEBUG=false
     volumes:
       - .:/app
+      - venv:/app/.venv
     command: uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     networks:
       - app-network
@@ -23,4 +24,7 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  venv:
 

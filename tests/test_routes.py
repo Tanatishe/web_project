@@ -10,7 +10,8 @@ async def test_root():
     async with AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.get("/")
         assert response.status_code == 200
-        assert response.json() == {"message": "FastAPI Web Project"}
+        assert "text/html" in response.headers.get("content-type", "")
+        assert "FastAPI Web Project" in response.text
 
 
 @pytest.mark.asyncio
