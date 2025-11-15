@@ -72,7 +72,7 @@ services:
     volumes:
       - jitsi-jvb-config:/config:Z
     environment:
-      - DOCKER_HOST_ADDRESS=
+      - DOCKER_HOST_ADDRESS=155.212.186.15
       - XMPP_AUTH_DOMAIN=auth.meet.jitsi
       - XMPP_INTERNAL_MUC_DOMAIN=internal-muc.meet.jitsi
       - XMPP_SERVER=jitsi-prosody
@@ -80,6 +80,7 @@ services:
       - JVB_AUTH_PASSWORD=jvbpass
       - JVB_BREWERY_MUC=jvbbrewery
       - JVB_PORT=10000
+      - JVB_ADVERTISE_IPS=155.212.186.15:10000
     networks:
       - app-network
 
