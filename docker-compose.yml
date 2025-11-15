@@ -28,36 +28,20 @@ services:
     restart: unless-stopped
     volumes:
       - jitsi-web-config:/config:Z
-      - jitsi-web-letsencrypt:/etc/letsencrypt:Z
-      - ./jitsi-custom:/usr/share/jitsi-meet/custom:ro
     environment:
       - ENABLE_AUTH=0
       - ENABLE_GUESTS=1
       - ENABLE_LETSENCRYPT=0
-      - ENABLE_HTTP_REDIRECT=0
-      - ENABLE_TRANSCRIPTIONS=0
       - DISABLE_HTTPS=1
-      - JICOFO_AUTH_USER=focus
       - XMPP_DOMAIN=meet.jitsi
       - XMPP_AUTH_DOMAIN=auth.meet.jitsi
       - XMPP_BOSH_URL_BASE=http://jitsi-prosody:5280
       - XMPP_GUEST_DOMAIN=guest.meet.jitsi
       - XMPP_MUC_DOMAIN=muc.meet.jitsi
-      - XMPP_RECORDER_DOMAIN=recorder.meet.jitsi
       - ETHERPAD_URL_BASE=http://jitsi-etherpad:9001
       - JVB_BREWERY_MUC=jvbbrewery
       - JVB_PORT=10000
-      - JVB_STUN_SERVERS=meet-jit-si-turnrelay.jitsi.net:443
-      - ENABLE_RECORDING=0
-      - JIBRI_BREWERY_MUC=jibribrewery
-      - JIBRI_PENDING_TIMEOUT=90
-      - JIBRI_XMPP_USER=jibri
-      - JIBRI_XMPP_PASSWORD=
-      - JIBRI_RECORDER_USER=recorder
-      - JIBRI_RECORDER_PASSWORD=
-      - ENABLE_SCTP=1
       - TRUST_PROXY=true
-      - TZ=UTC
     networks:
       - app-network
 
@@ -75,16 +59,10 @@ services:
       - XMPP_GUEST_DOMAIN=guest.meet.jitsi
       - XMPP_MUC_DOMAIN=muc.meet.jitsi
       - XMPP_INTERNAL_MUC_DOMAIN=internal-muc.meet.jitsi
-      - XMPP_RECORDER_DOMAIN=recorder.meet.jitsi
       - JICOFO_AUTH_USER=focus
       - JICOFO_AUTH_PASSWORD=focuspass
       - JVB_AUTH_USER=jvb
       - JVB_AUTH_PASSWORD=jvbpass
-      - JIBRI_XMPP_USER=jibri
-      - JIBRI_XMPP_PASSWORD=jibripass
-      - JIBRI_RECORDER_USER=recorder
-      - JIBRI_RECORDER_PASSWORD=recorderpass
-      - TZ=UTC
     networks:
       - app-network
 
@@ -102,9 +80,6 @@ services:
       - JVB_AUTH_PASSWORD=jvbpass
       - JVB_BREWERY_MUC=jvbbrewery
       - JVB_PORT=10000
-      - JVB_STUN_SERVERS=meet-jit-si-turnrelay.jitsi.net:443
-      - JVB_ENABLE_APIS=xmpp,rest
-      - TZ=UTC
     networks:
       - app-network
 
@@ -121,8 +96,6 @@ services:
       - XMPP_SERVER=jitsi-prosody
       - JICOFO_AUTH_USER=focus
       - JICOFO_AUTH_PASSWORD=focuspass
-      - JICOFO_ENABLE_HEALTH_CHECKS=true
-      - TZ=UTC
     networks:
       - app-network
 
@@ -142,7 +115,6 @@ networks:
 volumes:
   venv:
   jitsi-web-config:
-  jitsi-web-letsencrypt:
   jitsi-prosody-config:
   jitsi-jvb-config:
   jitsi-jicofo-config:
